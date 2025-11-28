@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class Ejercicio16{
+	public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	final int FILAS = 3;   // número de artículos (ejemplo)
+	final int COLS = 3;   // Artículo, Talla, Color
+	String[][] inventario = new String[FILAS][COLS];
+
+		System.out.println("Ingrese datos de " + FILAS + " artículos (Artículo, Talla, Color):");
+		for (int i = 0; i < FILAS; i++) {
+		System.out.print("Nombre del artículo " + (i + 1) + ": ");
+		inventario[i][0] = sc.nextLine().trim();
+		System.out.print("Talla: ");
+		inventario[i][1] = sc.nextLine().trim();
+		System.out.print("Color: ");
+		inventario[i][2] = sc.nextLine().trim();
+		System.out.println();
+		}
+
+			System.out.println("\nTabla de artículos:");
+			System.out.printf("%-15s %-8s %-10s\n", "Artículo", "Talla", "Color");
+			System.out.println("-------------------------------------");
+			for(int i = 0; i < FILAS; i++) {
+			System.out.printf("%-15s %-8s %-10s\n", inventario[i][0], inventario[i][1], inventario[i][2]);
+		}
+		sc.close();
+	}
+}
