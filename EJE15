@@ -1,0 +1,45 @@
+import java.util.Scanner;
+public class Ejercicio15{
+	public static void main(String args[]) {
+	Scanner sc = new Scanner(System.in);
+	final int PAISES = 4;
+	final int MESES = 3;
+	String[] paises = new String[PAISES];
+	double[][] temp = new double[PAISES][MESES];
+	double[] medias = new double[PAISES];
+
+	for (int i = 0; i < PAISES; i++) {
+		System.out.print("Nombre del país " + (i + 1) + ": ");
+		paises[i] = sc.nextLine().trim();
+		for (int j = 0; j < MESES; j++) {
+			System.out.print("  Temperatura media mes " + (j + 1) + " de " + paises[i] + ": ");
+			temp[i][j] = sc.nextDouble();
+		}
+		sc.nextLine();
+		}
+
+		System.out.println("\nTemperaturas ingresadas:");
+			for (int i = 0; i < PAISES; i++) {
+			System.out.print(paises[i] + ": ");
+			double suma = 0;
+				for (int j = 0; j < MESES; j++) {
+				System.out.print(temp[i][j] + (j < MESES-1 ? ", " : ""));
+				suma += temp[i][j];
+		}
+		medias[i] = suma / MESES;
+		System.out.println();
+		}
+
+		int idxMayor = 0;
+			for(int i = 0; i < PAISES; i++) {
+			if(medias[i] > medias[idxMayor]) idxMayor = i;
+		}
+		System.out.println("\nMedia trimestral por país:");
+			for(int i = 0; i < PAISES; i++) {
+			System.out.printf("%-20s %.2f\n", paises[i], medias[i]);
+		}
+				System.out.println("\nPaís con la temperatura media trimestral más alta: " + paises[idxMayor] + " (Media: " + String.format("%.2f", medias[idxMayor]) + ")");
+
+		sc.close();
+	}
+}
