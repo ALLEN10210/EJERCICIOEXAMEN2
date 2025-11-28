@@ -1,0 +1,44 @@
+import java.util.Scanner;
+public class Ejercicio14{
+	public static void main(String args[]) {
+	Scanner sc = new Scanner(System.in);
+	final int EMP = 4;
+	final int MES = 3;
+	String[] nombres = new String[EMP];
+	double[][] sueldos = new double[EMP][MES];
+	double[] acumulados = new double[EMP];
+
+	for(int i = 0; i < EMP; i++) {
+		System.out.print("Nombre del empleado " + (i + 1) + ": ");
+		nombres[i] = sc.nextLine().trim();
+	for(int j = 0; j < MES; j++) {
+		System.out.print("  Sueldo mes " + (j + 1) + " de " + nombres[i] + ": ");
+			sueldos[i][j] = sc.nextDouble();
+		}
+		sc.nextLine();
+	}
+
+	double totalPagado = 0;
+		for (int i = 0; i < EMP; i++) {
+		double suma = 0;
+		for (int j = 0; j < MES; j++) suma += sueldos[i][j];
+			acumulados[i] = suma;
+			totalPagado += suma;
+	}
+
+		int indiceMayor = 0;
+			for (int i = 1; i < EMP; i++) {
+				if (acumulados[i] > acumulados[indiceMayor]) indiceMayor = i;
+	}
+				System.out.println("\nResumen de sueldos:");
+				System.out.printf("%-20s %-10s %-10s %-10s %-12s\n", "Empleado", "Mes1", "Mes2", "Mes3", "Total");
+					for(int i = 0; i < EMP; i++) {
+						System.out.printf("%-20s %10.2f %10.2f %10.2f %12.2f\n", nombres[i], sueldos[i][0], sueldos[i][1], sueldos[i][2], acumulados[i]);
+	}
+					System.out.printf("\nTotal pagado a todos los empleados (3 meses): %.2f\n", totalPagado);
+					System.out.println("Empleado con mayor ingreso acumulado: " + nombres[indiceMayor] +
+					" (Total: " + String.format("%.2f", acumulados[indiceMayor]) + ")");
+
+	sc.close();
+	}
+}
