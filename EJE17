@@ -1,0 +1,44 @@
+import java.util.Scanner;
+public class Ejercicio17{
+	public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	System.out.print("¿Cuántos atletas desea registrar? ");
+	int n = sc.nextInt();
+	sc.nextLine();
+
+		String[] nombres = new String[n];
+		String[] apellidos = new String[n];
+		String[] especialidad = new String[n];
+		double[] tiempo = new double[n];
+
+		for (int i = 0; i < n; i++) {
+			System.out.println("\nAtleta " + (i + 1) + ":");
+			System.out.print("  Nombre: ");
+			nombres[i] = sc.nextLine().trim();
+			System.out.print("  Apellido: ");
+			apellidos[i] = sc.nextLine().trim();
+			System.out.print("  Especialidad (ej. 100 m): ");
+			especialidad[i] = sc.nextLine().trim();
+			System.out.print("  Tiempo registrado (segundos): ");
+			tiempo[i] = sc.nextDouble();
+			sc.nextLine();
+			}
+
+			int idxMejor = 0;
+			for (int i = 1; i < n; i++) {
+			if (tiempo[i] < tiempo[idxMejor]) idxMejor = i;
+			}
+
+				System.out.println("\nResultados de atletas:");
+				System.out.printf("%-15s %-15s %-12s %-10s\n", "Nombre", "Apellido", "Especialidad", "Tiempo(s)");
+				System.out.println("----------------------------------------------------------");
+				for (int i = 0; i < n; i++) {
+				String marca = (i == idxMejor) ? " <-- Mejor tiempo" : "";
+				System.out.printf("%-15s %-15s %-12s %-10.2f%s\n", nombres[i], apellidos[i], especialidad[i], tiempo[i], marca);
+			}
+
+			System.out.println("\nMejor atleta: " + nombres[idxMejor] + " " + apellidos[idxMejor] + " | Especialidad: " + especialidad[idxMejor] + " | Tiempo: " + tiempo[idxMejor] + " s");
+
+		sc.close();
+	}
+}
