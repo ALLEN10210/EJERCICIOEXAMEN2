@@ -1,0 +1,116 @@
+import java.util.Scanner;
+	public class Ejercicio9{
+	public static void main(String args[]){
+	double cal[]= new double[6];
+	Scanner sc = new Scanner(System.in);
+	double total=0;
+	int b=1;
+	System.out.println("Ingresa tu calificación final");
+	for(int a=0; a<6; a++){
+		System.out.println("Alumno "+b);
+		cal[a]=sc.nextDouble();
+		total= total+cal[a];
+		b++;
+		}
+	double prom=total/6;
+	System.out.println("Las calificaciones del grupo de 6 estudiantes son: ");
+	for(int a=0; a<6; a++){
+		System.out.println(cal[a]);
+		}
+		System.out.println("El promedio general del grupo es de " +prom);
+
+	
+}
+}
+		
+		
+import java.util.Scanner; 
+	public class Ejercicio1{
+	public static void main (String args[]){ 
+	Scanner sc = new Scanner (System.in); 
+	String nombre[]= new String[10];
+	int a=0;
+	System.out.println("Dame 10 nombres: ");
+		while (a<10) { 
+			nombre[a] = sc.nextLine();
+			a++;
+			}
+		a=0;
+		System.out.println("Los nombres que me diste son: ");
+		while (a<10) { 
+			System.out.println(nombre[a]);
+			a++;
+			}
+	}
+}
+
+import java.util.Scanner;
+	public class Ejercicio10{
+	public static void main(String args[]){
+	double num[]= new double[10];
+	Scanner sc = new Scanner(System.in);
+	System.out.println("Ingresa 10 numeros");
+	for(int a=0; a<10; a++){
+		num[a]=sc.nextDouble();
+		}
+		System.out.println("Los números con orden inverso son: ");
+		for(int a=9; a>=0; a--){
+		System.out.println(num[a]);
+		}
+}
+}
+
+import java.util.Scanner;
+class Ejercicio7 { 
+	public static void main (String args[]) { 
+	System.out.println("¿De que numero quieres la tabla de multiplicar?");
+	Scanner sc = new Scanner(System.in);
+	int total=0;
+	int a = sc.nextInt();
+	for(int b=1; b<11; b++) { 
+		total= a*b;
+		System.out.println(a + " x " + b + " = " + total);
+		}
+	}
+	}
+import java.util.Scanner;
+	public class Ejercicio8{
+	public static void main(String args[]){
+	double ahorro=500;
+	double interes=0;
+	
+	for(int a=1; a<13;a++){
+	interes= Math.round(ahorro*1.09);
+	System.out.println("Ahorro del mes " + a + " con la tasa de interes del 9%  es de:" +interes );
+	ahorro=interes+500;
+	}
+
+
+
+}
+} 
+class Ejercicio5{ 
+	public static void main(String args[]){
+	int i=0;
+	int j=0;
+	for(i=0; i<=6; i++) 
+	{
+	for(j=0; j<=i; j++)
+		System.out.print("*");
+		System.out.println();
+	}
+
+
+
+
+}
+}
+public class Ejercicio2 {
+	public static void main (String args[]){ 
+	int a=2;
+		while (a<21) { 
+			System.out.println(a);
+			a=a+2;
+			}
+	}
+}
